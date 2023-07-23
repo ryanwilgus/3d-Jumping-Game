@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Avatar
+  - Bullet
+  - Enemy
+  - Shooter
+  - Door
+  - Key
+  - Coin
   layers:
   - Default
   - TransparentFX
