@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Shooter : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Shooter : MonoBehaviour
     public float timeBetweenShots;
     private float timeUntilNextShot;
     private int bulletCount = 0;
+    public Text ammoDisplay;
+    private int bulletDisplay = 15;
 
     private void Update()
     {
@@ -19,6 +22,7 @@ public class Shooter : MonoBehaviour
         {
             canShoot = true;
         }
+        ammoDisplay.text = bulletDisplay.ToString();
     }
 
     public void Shoot()
@@ -33,12 +37,13 @@ public class Shooter : MonoBehaviour
             canShoot = false;
             timeUntilNextShot = (Time.time / 2) + timeUntilNextShot;
             bulletCount = 0;
+            bulletDisplay = 15;
         }
-
         if (canShoot == true)
         {
             Instantiate(Bullet, this.transform.position, this.transform.rotation);
             bulletCount += 1;
+            bulletDisplay -= 1;
         }
     }
 }
